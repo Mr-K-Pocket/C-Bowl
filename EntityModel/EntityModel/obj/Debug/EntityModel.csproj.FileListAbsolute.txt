@@ -1,0 +1,16 @@
+D:\Github\C-Bowl\EntityModel\EntityModel\bin\Debug\EntityModel.dll.config
+D:\Github\C-Bowl\EntityModel\EntityModel\bin\Debug\EntityModel.dll
+D:\Github\C-Bowl\EntityModel\EntityModel\bin\Debug\EntityModel.pdb
+D:\Github\C-Bowl\EntityModel\EntityModel\bin\Debug\EntityFramework.dll
+D:\Github\C-Bowl\EntityModel\EntityModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\Github\C-Bowl\EntityModel\EntityModel\bin\Debug\EntityFramework.xml
+D:\Github\C-Bowl\EntityModel\EntityModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\Github\C-Bowl\EntityModel\EntityModel\obj\Debug\EntityModel.csprojAssemblyReference.cache
+D:\Github\C-Bowl\EntityModel\EntityModel\obj\Debug\EntityModel.csproj.CoreCompileInputs.cache
+D:\Github\C-Bowl\EntityModel\EntityModel\obj\Debug\EntityModel.csproj.CopyComplete
+D:\Github\C-Bowl\EntityModel\EntityModel\obj\Debug\EntityModel.dll
+D:\Github\C-Bowl\EntityModel\EntityModel\obj\Debug\EntityModel.pdb
+D:\Github\C-Bowl\EntityModel\EntityModel\obj\Debug\EntityModel.Migrations.InitilizeDB.resources
+D:\Github\C-Bowl\EntityModel\EntityModel\obj\Debug\EntityModel.csproj.GenerateResource.cache
+D:\Github\C-Bowl\EntityModel\EntityModel\obj\Debug\EntityModel.Migrations.SeedData.resources
+D:\Github\C-Bowl\EntityModel\EntityModel\obj\Debug\EntityModel.Migrations.SeedEnrollment.resources
