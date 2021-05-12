@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/EntityModel/packages/EntityFramework.6.4.4
+EntityModel/.vs/EntityModel/v16/.suo
+EntityModel/.vs/EntityModel/v16/.suo
