@@ -1,6 +1,5 @@
 ﻿using EntityModel.DAL;
 using Service.GenericRepo;
-using System;
 
 namespace Service.UnitOfWork
 {
