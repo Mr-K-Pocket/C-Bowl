@@ -24,8 +24,7 @@ namespace Service.GenericRepo
             }
             catch (Exception ex)
             {
-                Logger.Logger.LogError(ex);
-                return new List<TEntity>();
+                throw;
             }
         }
 
@@ -38,8 +37,7 @@ namespace Service.GenericRepo
             catch (Exception ex)
             {
                 Logger.Logger.LogError(typeof(TEntity).ToString() + " entity with id " + entityID + " is not found.");
-                Logger.Logger.LogError(ex);
-                return null;
+                throw;
             }
         }
 
@@ -52,8 +50,7 @@ namespace Service.GenericRepo
             catch (Exception ex)
             {
                 Logger.Logger.LogError("Fail to add " + typeof(TEntity).ToString() + " entity.");
-                Logger.Logger.LogError(ex);
-                return null;
+                throw;
             }
         }
 
@@ -68,8 +65,7 @@ namespace Service.GenericRepo
             catch (Exception ex)
             {
                 Logger.Logger.LogError("Fail to update " + typeof(TEntity).ToString() + " entity.");
-                Logger.Logger.LogError(ex);
-                return null;
+                throw;
             }
         }
 
@@ -86,8 +82,7 @@ namespace Service.GenericRepo
             catch (Exception ex)
             {
                 Logger.Logger.LogError("Fail to delete " + typeof(TEntity).ToString() + " entity.");
-                Logger.Logger.LogError(ex);
-                return null;
+                throw;
             }
         }
     }

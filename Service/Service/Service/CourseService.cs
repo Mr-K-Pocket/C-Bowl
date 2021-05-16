@@ -2,6 +2,7 @@
 using Service.GenericRepo;
 using Service.UnitOfWork;
 using Service.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -45,11 +46,21 @@ namespace Service.Service
                              Credits = course.Credits
                          } : null;
 
+            if (result == null)
+            {
+                throw new NullReferenceException("Can not find the course by id.");
+            }
+
             return result;
         }
 
         public Course CreateCourse(CourseViewModel courseVM)
         {
+            if (courseVM == null)
+            {
+                throw new ArgumentNullException("Course view model is null.");
+            }
+
             var result = genericRepo.AddEntity(Adapt(courseVM));
 
             return result;
@@ -57,6 +68,11 @@ namespace Service.Service
 
         public Course UpdateCourse(CourseViewModel courseVM)
         {
+            if (courseVM == null)
+            {
+                throw new ArgumentNullException("Course view model is null.");
+            }
+
             var result = genericRepo.UpdateEntity(Adapt(courseVM));
 
             return result;
@@ -64,6 +80,11 @@ namespace Service.Service
 
         public Course DeleteCourse(CourseViewModel courseVM)
         {
+            if (courseVM == null)
+            {
+                throw new ArgumentNullException("Course view model is null.");
+            }
+
             var result = genericRepo.DeleteEntity(Adapt(courseVM));
 
             return result;

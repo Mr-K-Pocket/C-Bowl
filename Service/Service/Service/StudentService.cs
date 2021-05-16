@@ -2,6 +2,7 @@
 using Service.GenericRepo;
 using Service.UnitOfWork;
 using Service.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -46,11 +47,21 @@ namespace Service.Service
                              EnrollmentDate = student.EnrollmentDate
                          } : null;
 
+            if (result == null)
+            {
+                throw new NullReferenceException("Can not find the student by id.");
+            }
+
             return result;
         }
 
         public Student CreateStudent(StudentViewModel stuVM)
         {
+            if(stuVM == null)
+            {
+                throw new ArgumentNullException("Student view model is null.");
+            }
+
             var result = genericRepo.AddEntity(Adapt(stuVM));
 
             return result;
@@ -58,6 +69,11 @@ namespace Service.Service
 
         public Student UpdateStudent(StudentViewModel stuVM)
         {
+            if (stuVM == null)
+            {
+                throw new ArgumentNullException("Student view model is null.");
+            }
+
             var result = genericRepo.UpdateEntity(Adapt(stuVM));
 
             return result;
@@ -65,6 +81,11 @@ namespace Service.Service
 
         public Student DeleteStudent(StudentViewModel stuVM)
         {
+            if (stuVM == null)
+            {
+                throw new ArgumentNullException("Student view model is null.");
+            }
+
             var result = genericRepo.DeleteEntity(Adapt(stuVM));
 
             return result;
