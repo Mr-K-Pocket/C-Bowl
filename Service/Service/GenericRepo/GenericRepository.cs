@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 
@@ -17,33 +18,77 @@ namespace Service.GenericRepo
 
         public async Task<IEnumerable<TEntity>> GetAllEntities()
         {
-            return await _dbSet.ToListAsync();
+            try
+            {
+                return await _dbSet.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                Logger.Logger.LogError(ex);
+                return new List<TEntity>();
+            }
         }
 
         public async Task<TEntity> GetByEntityID(int entityID)
         {
-            return await _dbSet.FindAsync();
-        }
-
-        public void AddEntity(TEntity entity)
-        {
-            _dbSet.Add(entity);
-        }
-
-        public void UpdateEntity(TEntity entity)
-        {
-            _dbSet.Attach(entity);
-            _dbContext.Entry(entity).State = EntityState.Modified;
-        }
-
-        public void DeleteEntity(TEntity entity)
-        {
-            if (_dbContext.Entry(entity).State == EntityState.Detached)
+            try
             {
-                _dbSet.Attach(entity);
+                return await _dbSet.FindAsync();
             }
+            catch (Exception ex)
+            {
+                Logger.Logger.LogError(typeof(TEntity).ToString() + " entity with id " + entityID + " is not found.");
+                Logger.Logger.LogError(ex);
+                return null;
+            }
+        }
 
-            _dbSet.Remove(entity);
+        public TEntity AddEntity(TEntity entity)
+        {
+            try
+            {
+                return _dbSet.Add(entity);
+            }
+            catch (Exception ex)
+            {
+                Logger.Logger.LogError("Fail to add " + typeof(TEntity).ToString() + " entity.");
+                Logger.Logger.LogError(ex);
+                return null;
+            }
+        }
+
+        public TEntity UpdateEntity(TEntity entity)
+        {
+            try {
+                TEntity e = _dbSet.Attach(entity);
+                _dbContext.Entry(entity).State = EntityState.Modified;
+
+                return e;
+            }
+            catch (Exception ex)
+            {
+                Logger.Logger.LogError("Fail to update " + typeof(TEntity).ToString() + " entity.");
+                Logger.Logger.LogError(ex);
+                return null;
+            }
+        }
+
+        public TEntity DeleteEntity(TEntity entity)
+        {
+            try {
+                if (_dbContext.Entry(entity).State == EntityState.Detached)
+                {
+                    _dbSet.Attach(entity);
+                }
+
+                return _dbSet.Remove(entity);
+            }
+            catch (Exception ex)
+            {
+                Logger.Logger.LogError("Fail to delete " + typeof(TEntity).ToString() + " entity.");
+                Logger.Logger.LogError(ex);
+                return null;
+            }
         }
     }
 }

@@ -7,8 +7,8 @@ namespace Service.GenericRepo
     {
         Task<IEnumerable<TEntity>> GetAllEntities();
         Task<TEntity> GetByEntityID(int entityID);
-        void AddEntity(TEntity entity);
-        void UpdateEntity(TEntity entity);
-        void DeleteEntity(TEntity entity);
+        TEntity AddEntity(TEntity entity);
+        TEntity UpdateEntity(TEntity entity);
+        TEntity DeleteEntity(TEntity entity);
     }
 }

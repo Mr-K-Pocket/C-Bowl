@@ -60,12 +60,20 @@
     <Compile Include="GenericRepo\GenericRepository.cs" />
     <Compile Include="GenericRepo\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CourseService.cs" />
+    <Compile Include="Service\EnrollmentService.cs" />
+    <Compile Include="Service\StudentCourseEnrollmentService.cs" />
+    <Compile Include="Service\StudentService.cs" />
     <Compile Include="UnitOfWork\GenericUnitOfWork.cs" />
+    <Compile Include="ViewModel\CourseViewModel.cs" />
+    <Compile Include="ViewModel\StudentCourseEnrollment.cs" />
+    <Compile Include="ViewModel\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
