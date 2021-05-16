@@ -32,6 +32,8 @@ namespace Service.Service
                          where subSE.StudentID == studentID
                          select new StudentCourseEnrollment()
                          {
+                             StudentID = subSE.StudentID,
+                             CourseID = c.CourseID,
                              FirstName = subSE.FirstName,
                              LastName = subSE.LastName,
                              Title = c.Title,
