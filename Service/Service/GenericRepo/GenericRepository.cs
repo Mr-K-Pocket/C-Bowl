@@ -32,7 +32,7 @@ namespace Service.GenericRepo
         {
             try
             {
-                return await _dbSet.FindAsync();
+                return await _dbSet.FindAsync(entityID);
             }
             catch (Exception ex)
             {

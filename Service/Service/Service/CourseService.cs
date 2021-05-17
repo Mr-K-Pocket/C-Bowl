@@ -62,6 +62,7 @@ namespace Service.Service
             }
 
             var result = genericRepo.AddEntity(Adapt(courseVM));
+            unitOfWork.SaveChanges();
 
             return result;
         }
@@ -74,6 +75,7 @@ namespace Service.Service
             }
 
             var result = genericRepo.UpdateEntity(Adapt(courseVM));
+            unitOfWork.SaveChanges();
 
             return result;
         }
@@ -86,6 +88,7 @@ namespace Service.Service
             }
 
             var result = genericRepo.DeleteEntity(Adapt(courseVM));
+            unitOfWork.SaveChanges();
 
             return result;
         }

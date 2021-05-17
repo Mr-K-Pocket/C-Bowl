@@ -8,5 +8,10 @@ namespace Service.ViewModel
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime EnrollmentDate { get; set; }
+
+        public StudentViewModel()
+        {
+            EnrollmentDate = DateTime.Now;
+        }
     }
 }

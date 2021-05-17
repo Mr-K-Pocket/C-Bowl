@@ -63,6 +63,7 @@ namespace Service.Service
             }
 
             var result = genericRepo.AddEntity(Adapt(stuVM));
+            unitOfWork.SaveChanges();
 
             return result;
         }
@@ -75,6 +76,7 @@ namespace Service.Service
             }
 
             var result = genericRepo.UpdateEntity(Adapt(stuVM));
+            unitOfWork.SaveChanges();
 
             return result;
         }
@@ -87,6 +89,7 @@ namespace Service.Service
             }
 
             var result = genericRepo.DeleteEntity(Adapt(stuVM));
+            unitOfWork.SaveChanges();
 
             return result;
         }
@@ -95,6 +98,7 @@ namespace Service.Service
         {
             Student student = new Student()
             {
+                StudentID = stuVM.StudentID,
                 FirstName = stuVM.FirstName,
                 LastName = stuVM.LastName,
                 EnrollmentDate = stuVM.EnrollmentDate
