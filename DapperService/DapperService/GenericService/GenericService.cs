@@ -11,8 +11,8 @@ namespace DapperService.GenericService
 {
     public class GenericService<T> : IGenericService<T> where T : class
     {
-        private IDbConnection db;
-        private string connectionString;
+        protected IDbConnection db;
+        protected string connectionString;
         protected string tableName;
         protected string primaryKey;
         protected string insertColumns;

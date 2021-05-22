@@ -74,6 +74,9 @@
     <Compile Include="Model\Enrollment.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataAccess\CourseDataAccess.cs" />
+    <Compile Include="DataAccess\EnrollmentDataAccess.cs" />
+    <Compile Include="DataAccess\StudentDataAccess.cs" />
     <Compile Include="Service\CourseService.cs" />
     <Compile Include="Service\EnrollmentService.cs" />
     <Compile Include="Service\StudentService.cs" />

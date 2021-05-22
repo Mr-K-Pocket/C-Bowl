@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DapperService.Model
 {
@@ -8,5 +9,7 @@ namespace DapperService.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime EnrollmentDate { get; set; }
+
+        public List<Enrollment> Enrollments { get; set; }
     }
 }
