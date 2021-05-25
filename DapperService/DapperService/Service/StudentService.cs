@@ -2,16 +2,21 @@
 using DapperService.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Utility.Utilities;
 
 namespace DapperService.Service
 {
     public class StudentService
     {
         private StudentDataAccess studentDA = new StudentDataAccess();
+        private string rootKey = "Student";
 
         public async Task<IEnumerable<Student>> GetAllStudents()
         {
-            return await studentDA.GetAllEntities();
+            string cacheKey = rootKey + "|All";
+            List<Student> cachedItem = DataCache.GetCachedItem<List<Student>>(cacheKey);
+
+            return (cachedItem == null ? await studentDA.GetAllEntities() : cachedItem);
         }
 
         public async Task<Student> GetStudentByID(int studentID)

@@ -2,13 +2,14 @@
 using DapperService.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Utility.Utilities;
 
 namespace DapperService.Service
 {
     public class EnrollmentService
     {
         private EnrollmentDataAccess enrollmentDA = new EnrollmentDataAccess();
-
+        private string rootKey = "Enrollment";
         public async Task<IEnumerable<Enrollment>> GetAllEnrollments()
         {
             return await enrollmentDA.GetAllEntities();
@@ -17,6 +18,14 @@ namespace DapperService.Service
         public async Task<Enrollment> GetEnrollmentByID(int enrollmentID)
         {
             return await enrollmentDA.GetEntityById(enrollmentID);
+        }
+
+        public async Task<IEnumerable<Enrollment>> GetAllStudentsWithEnrollments()
+        {
+            string cacheKey = rootKey + "WithStudent|All";
+            List<Enrollment> cachedItem = DataCache.GetCachedItem<List<Enrollment>>(cacheKey);
+
+            return (cachedItem == null ? await enrollmentDA.GetAllStudentsWithEnrollment() : cachedItem);
         }
 
         public async Task<Enrollment> CreateEnrollment(Enrollment enrollment)
