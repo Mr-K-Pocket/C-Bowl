@@ -81,6 +81,7 @@
     <Compile Include="DataAccess\CourseDataAccess.cs" />
     <Compile Include="DataAccess\EnrollmentDataAccess.cs" />
     <Compile Include="DataAccess\StudentDataAccess.cs" />
+    <Compile Include="ServiceHelper\CacheKeyHelper.cs" />
     <Compile Include="Service\CourseService.cs" />
     <Compile Include="Service\EnrollmentService.cs" />
     <Compile Include="Service\StudentService.cs" />

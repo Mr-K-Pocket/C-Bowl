@@ -30,8 +30,8 @@ namespace DapperService.DataAccess
                     await db.QueryAsync<Student, Enrollment, Student>(@"
                         SELECT s.StudentID, s.FirstName, s.LastName, e.CourseID, c.Title, e.Grade
                         FROM Student AS s 
-                        JOIN Enrollment AS e ON s.StudentID = e.StudentID
-                        JOIN Course AS c ON e.CourseID = c.CourseID
+                        LEFT JOIN Enrollment AS e ON s.StudentID = e.StudentID
+                        LEFT JOIN Course AS c ON e.CourseID = c.CourseID
                         ",
                             (student, enrollment) =>
                             {
@@ -44,7 +44,11 @@ namespace DapperService.DataAccess
                                     studentDictionary.Add(tempStu.StudentID, tempStu);
                                 }
 
-                                tempStu.Enrollments.Add(enrollment);
+                                if (enrollment != null)
+                                {
+                                    tempStu.Enrollments.Add(enrollment);
+                                }
+                                
                                 return tempStu;
                             },
                             splitOn: "CourseID"
