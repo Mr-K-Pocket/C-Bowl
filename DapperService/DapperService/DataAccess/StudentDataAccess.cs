@@ -3,6 +3,7 @@ using DapperService.GenericService;
 using DapperService.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
@@ -61,6 +62,22 @@ namespace DapperService.DataAccess
             catch(Exception ex)
             {
                 Logger.Logger.LogError("Error occured when get students with enrollments", ex);
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<Student>> GetStudentByKeyword(string keyword)
+        {
+            try
+            {
+                using (db = new SqlConnection(connectionString))
+                {
+                    return await db.QueryAsync<Student>("dbo.dbo_Student_SearchStudentByKeyword", new { keyword = keyword}, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Logger.LogError("Error occured when search students by keyword", ex);
                 throw;
             }
         }

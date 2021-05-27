@@ -39,6 +39,11 @@ namespace DapperService.Service
             return await studentDA.GetStudentWithEnrollment(studentID);
         }
 
+        public async Task<IEnumerable<Student>> SearchStudentByKeyword(string keyword)
+        {
+            return await studentDA.GetStudentByKeyword(keyword);
+        }
+
         public async Task<Student> CreateStudent(Student student)
         {
             DataCache.RemoveCacheByKey(CacheKeyHelper.GetAllCacheKey(rootKey));
